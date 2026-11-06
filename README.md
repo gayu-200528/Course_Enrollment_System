@@ -48,7 +48,7 @@ information and generate reports.
 
 ### Q1. Display complete enrollment details, including student name, course name, fee, and enrollment date.
 Query:
-SELECT s.std_name, c.course_name, c.fee, e.enrollment_date
+ SELECT s.std_name, c.course_name, c.fee, e.enrollment_date
 FROM students AS s
 JOIN enrollments AS e ON s.student_id = e.student_id
 JOIN courses AS c ON c.course_id = e.course_id;
@@ -59,7 +59,7 @@ JOIN courses AS c ON c.course_id = e.course_id;
 
 ### Q2. Find all students who are currently enrolled in Python Programming.
 Query: 
-SELECT s.std_name
+ SELECT s.std_name
 FROM students AS s
 JOIN enrollments AS e ON s.student_id = e.student_id
 JOIN courses AS c ON c.course_id = e.course_id
@@ -69,7 +69,7 @@ WHERE c.course_name = 'Python Programming';
 
 ### Q3. Find the total number of students enrolled in each course.
 Query:
-SELECT c.course_name, COUNT(e.student_id) AS total_students
+ SELECT c.course_name, COUNT(e.student_id) AS total_students
 FROM courses AS c
 JOIN enrollments AS e ON c.course_id = e.course_id
 GROUP BY c.course_id, c.course_name;
@@ -78,15 +78,15 @@ GROUP BY c.course_id, c.course_name;
 
 ### Q4. Display students whose names start with R.
 Query: 
-SELECT *
+ SELECT *
 FROM students
 WHERE std_name LIKE 'R%';
 
 <img src="images/Q4.png" alt="Q4" width=530/>
 
 ### Q5. Find the student who has spent the highest amount on course fees.
-query:
-SELECT s.std_name, SUM(c.fee) AS total_spent
+Query:
+ SELECT s.std_name, SUM(c.fee) AS total_spent
 FROM students AS s
 JOIN enrollments AS e ON s.student_id = e.student_id
 JOIN courses AS c ON c.course_id = e.course_id
@@ -98,7 +98,7 @@ LIMIT 1;
 
 ### Q6. Find courses whose fee is greater than the average course fee.
 Query:
-SELECT course_name
+ SELECT course_name
 FROM courses
 WHERE fee > (SELECT AVG(fee) FROM courses);
 
@@ -106,7 +106,7 @@ WHERE fee > (SELECT AVG(fee) FROM courses);
 
 ### Q7. Find students who have enrolled in more than one course.
 Query:
-SELECT s.std_name, COUNT(e.course_id) AS course_count
+ SELECT s.std_name, COUNT(e.course_id) AS course_count
 FROM students AS s
 JOIN enrollments AS e ON s.student_id = e.student_id
 GROUP BY s.student_id, s.std_name
@@ -116,7 +116,7 @@ HAVING COUNT(e.course_id) > 1;
 
 ### Q8. Display all courses sorted by fee from highest to lowest.
 Query:
-SELECT course_name, fee
+ SELECT course_name, fee
 FROM courses
 ORDER BY fee DESC;
 
@@ -124,7 +124,7 @@ ORDER BY fee DESC;
 
 ### Q9. Identify the most popular course based on the highest number of enrollments.
 Query:
-SELECT c.course_name, COUNT(e.course_id) AS total_enroll
+ SELECT c.course_name, COUNT(e.course_id) AS total_enroll
 FROM courses AS c
 JOIN enrollments AS e ON c.course_id = e.course_id
 GROUP BY c.course_id, c.course_name
@@ -135,7 +135,7 @@ LIMIT 1;
 
 ### Q10. Find the second-highest course fee.
 Query:
-SELECT MAX(fee) AS second_highest
+ SELECT MAX(fee) AS second_highest
 FROM courses
 WHERE fee < (SELECT MAX(fee) FROM courses);
 
@@ -143,7 +143,7 @@ WHERE fee < (SELECT MAX(fee) FROM courses);
 
 ### Q11. Generate a report showing each student, the number of courses enrolled in, and the total amount spent.
 Query:
-SELECT s.std_name,
+ SELECT s.std_name,
        COUNT(e.course_id) AS number_of_courses,
        SUM(c.fee) AS total_spent
 FROM students AS s
@@ -155,7 +155,7 @@ GROUP BY s.student_id, s.std_name;
 
 ### Q12. Find students who enrolled in a course after February 1, 2026.
 Query:
-SELECT s.std_name
+ SELECT s.std_name
 FROM students AS s
 JOIN enrollments AS e ON s.student_id = e.student_id
 WHERE e.enrollment_date > '2026-02-01';
@@ -164,7 +164,7 @@ WHERE e.enrollment_date > '2026-02-01';
 
 ### Q13. Find students who are enrolled in both Python Programming and MySQL Database.
 Query:
-SELECT s.std_name
+ SELECT s.std_name
 FROM students AS s
 JOIN enrollments AS e ON s.student_id = e.student_id
 JOIN courses AS c ON c.course_id = e.course_id
@@ -176,7 +176,7 @@ HAVING COUNT(c.course_name) = 2;
 
 ### Q14. Display the top 3 courses based on the number of students enrolled.
 Query:
-SELECT c.course_name, COUNT(e.student_id) AS total_enrollments
+ SELECT c.course_name, COUNT(e.student_id) AS total_enrollments
 FROM courses AS c
 JOIN enrollments AS e ON c.course_id = e.course_id
 GROUP BY c.course_id, c.course_name
@@ -187,7 +187,7 @@ LIMIT 3;
 
 ### Q15. Display all courses with a fee less than 15,000.
 Query:
-SELECT *
+ SELECT *
 FROM courses
 WHERE fee < 15000;
 
@@ -195,7 +195,7 @@ WHERE fee < 15000;
 
 ### Q16. Display all students along with their enrollment date.
 Query:
-SELECT s.std_name, e.enrollment_date
+ SELECT s.std_name, e.enrollment_date
 FROM students AS s
 JOIN enrollments AS e ON s.student_id = e.student_id;
 
