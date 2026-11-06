@@ -25,21 +25,21 @@ The system uses three related tables:
 
 ### 3.2 Courses Table
 
-  Column Name     Data Type       Constraint
-  --------------- --------------- -------------
-  `course_id`     INT             Primary Key
-  `course_name`   VARCHAR(50)     ---
-  `fee`           DECIMAL(10,2)   ---
-  `duration`      VARCHAR(20)     ---
+  Column Name    | Data Type     |  Constraint  | 
+  ---------------|---------------| -------------|
+  `course_id`    |INT            |Primary Key   |
+  `course_name`  |VARCHAR(50)    |---           |
+  `fee`          |DECIMAL(10,2)  |---           |
+  `duration`     |VARCHAR(20)    |---           |
 
 ### 3.3 Enrollments Table
 
-  Column Name         Data Type   Constraint
-  ------------------- ----------- -------------
-  `enrollment_id`     INT         Primary Key
-  `student_id`        INT         Foreign Key
-  `course_id`         INT         Foreign Key
-  `enrollment_date`   DATE        ---
+  Column Name        | Data Type  |  Constraint  |
+  -------------------| -----------| -------------|
+  `enrollment_id`    | INT        | Primary Key  |
+  `student_id`       | INT        | Foreign Key  |
+  `course_id`        | INT        | Foreign Key  |
+  `enrollment_date`  | DATE       | ---          |
 
 ## 4. SQL Queries
 
