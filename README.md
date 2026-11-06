@@ -1,7 +1,6 @@
-<img src="https://github.com/gayu-200528/Course_Enrollment_System/blob/main/images/intro.png" alt="My_sql" width="1000"/> 
+<h1 align="center">COURSE ENROLLMENT SYSTEM</h1>
 
-
-
+<img src="https://raw.githubusercontent.com/gayu-200528/Course_Enrollment_System/main/images/My_sql.png" alt="MySQL" width="1000"/>
 # Course Enrollment System
 
 ## 1. Objective
